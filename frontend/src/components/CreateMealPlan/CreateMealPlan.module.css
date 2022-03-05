@@ -27,13 +27,14 @@
 .subTitle {
   position: absolute;
   top: 160px;
+  font-weight: 700;
   color: white;
   font-size: 18px;
   padding: 0px 30px;
 }
 
 .box {
-  width: 80%;
+  width: 90%;
   height: 50%;
   background: white;
   border-radius: var(--borderRadius);
@@ -55,4 +56,19 @@
   position: relative;
   font-size: large;
   border-radius: var(--borderRadius);
+}
+
+.preferenceText {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px 30px;
+  padding-top: 30px;
+}
+
+#first-preference {
+  padding-top: 40px;
+}
+
+.categoryContainer {
+  display: flex;
 }

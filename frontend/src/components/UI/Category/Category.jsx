@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Category.module.css";
 
-const Category = ({ active, text }) => {
+const Category = ({ text, index, onCategoryClick }) => {
+  const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+  };
   return (
     <div
       className={styles.container}
-      style={`background: ${active ? `#afd47f` : `#828282`}`}
+      style={{
+        background: `${active ? `#afd47f` : `#e4e4e4`}`,
+        color: `${active ? `white` : `#828282`}`,
+        marginLeft: `${index === 0 ? `30px` : `0`}`,
+      }}
+      onClick={handleClick}
     >
-      Category
+      {text}
     </div>
   );
 };
