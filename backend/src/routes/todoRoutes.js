@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getTodos, addTodo, updateTodo, deleteTodo } = require('../controllers/todoController')
+const { getTodos, addTodo, updateTodo, deleteTodo } = require('../controllers/mainController')
 
 router.get('/', async (req, res) => {
   const todos = await getTodos()

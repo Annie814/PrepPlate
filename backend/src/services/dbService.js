@@ -3,16 +3,16 @@ var ObjectID = require('mongodb').ObjectID;
 const uri = "mongodb+srv://cmdf2022:q7R2Gdm3kSM1JFXV@cluster0.8pqpu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-const addValueToDb = async (value) => {
+const addValueToMealPlan = async (value) => {
   const insert = async (value) => {
     try {
       await client.connect()
-      const database = client.db('mydb');
-      const todos = database.collection('todos');
+      const database = client.db('prepplate');
+      const mealplan = database.collection('mealplan');
 
       const doc = { text: value, isCompleted: false }
-      const result = await todos.insertOne(doc)
-      console.log(`A document was inserted with the _id: ${result.insertedId}`);
+      const result = await mealplan.insertOne(doc)
+      console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
       return result
     } finally {
       await client.close()
