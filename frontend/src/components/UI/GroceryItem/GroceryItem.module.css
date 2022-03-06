@@ -1,0 +1,19 @@
+.container {
+  width: 80vw;
+  padding: 15px 10px;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 40px;
+  border: 2px solid var(--grey04);
+}
+
+.text {
+  margin: auto 20px;
+}
