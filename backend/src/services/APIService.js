@@ -5,7 +5,7 @@ const url = 'https://api.spoonacular.com'
 const generateMealPlan = async () => {
   let results = {};
   try {
-    results = await axios.get(`${url}/mealplanner/generate?timeFrame=week&apiKey=df07beb94fea48aeb10af590422d0fe7`);
+    results = await axios.get(`${url}/mealplanner/generate?timeFrame=week&apiKey=611156a4665b4fbfa6536a2cd482a5df`);
 //    console.log(results);
     const parsedData = results.data.week;
     const recipeIDs =
@@ -44,7 +44,7 @@ const generateMealPlan = async () => {
 const recipeInfo = async (ids) => {
   let results = {};
   try {
-    results = await axios.get(`${url}/recipes/informationBulk?ids=${ids}&apiKey=df07beb94fea48aeb10af590422d0fe7`);
+    results = await axios.get(`${url}/recipes/informationBulk?ids=${ids}&apiKey=611156a4665b4fbfa6536a2cd482a5df`);
     return results.data;
   } catch (err) {
     console.log(err);

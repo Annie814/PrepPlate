@@ -10,7 +10,7 @@ const addValueToMealPlan = async (value) => {
       const database = client.db('prepplate');
       const mealplan = database.collection('mealplan');
 
-//      const doc = { text: value, isCompleted: false }
+      //      const doc = { text: value, isCompleted: false }
       const result = await mealplan.insertOne(value)
       console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
       return result
@@ -29,10 +29,12 @@ const addValueToRecipes = async (value) => {
       const database = client.db('prepplate');
       const mealplan = database.collection('recipes');
 
- //     const doc = { text: value, isCompleted: false }
-      const result = await mealplan.insertOne(value)
-      console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
-      return result
+      //     const doc = { text: value, isCompleted: false }
+      for (var i = 0; i < value.length; i++) {
+        var obj = value[i];
+        const result = await mealplan.insertOne(obj);
+        console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
+      }
     } finally {
       await client.close()
     }
@@ -118,12 +120,12 @@ const getAllValuesFromDb = async () => {
       await client.connect()
       const database = client.db('mydb');
       const todos = database.collection('todos');
-      
+
       const query = {}
-      const options = {projection: { _id: 1, text: 1, isCompleted: 1 }}
+      const options = { projection: { _id: 1, text: 1, isCompleted: 1 } }
       const cursor = todos.find(query, options);
       const result = []
-      await cursor.forEach((entry) => {console.log(entry); result.push(entry)})
+      await cursor.forEach((entry) => { console.log(entry); result.push(entry) })
       return result
     } finally {
       await client.close()
@@ -133,4 +135,4 @@ const getAllValuesFromDb = async () => {
   return result;
 }
 
-module.exports = {addValueToMealPlan, addValueToRecipes,  getAllValuesFromDb, updateValueInDb, deleteValueFromDb }
+module.exports = { addValueToMealPlan, addValueToRecipes, getAllValuesFromDb, updateValueInDb, deleteValueFromDb }
