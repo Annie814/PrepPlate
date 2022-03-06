@@ -15,38 +15,38 @@ const Grocery = () => {
     //added
     const result = await getRecipes();
     setRecipes(result);
-
-    setIngredients(getIngredients());
   };
 
   const getIngredients = () => {
     const arr = [];
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i] && recipes[i].extendedIngredients.length !== 0) {
-        for (let j = 0; j < recipes[j].extendedIngredients.length; j++) {
+    for (let i = 3; i < recipes.length; i++) {
+      if (
+        recipes[i].extendedIngredients &&
+        recipes[i].extendedIngredients.length !== 0
+      ) {
+        for (let j = 0; j < 2; j++) {
           arr.push(recipes[i].extendedIngredients[j]);
         }
       }
     }
-
-    console.log("arr", arr);
     return arr;
   };
-
-  //all the meals are in frontend.
-  //usestate to controll the meals to show.
 
   useEffect(() => {
     getData();
   }, []);
-  if (!recipes.length) {
-    return null; // if its empty
-  }
-  console.log(recipes, ingredients);
+
+  useEffect(() => {
+    if (recipes) setIngredients(getIngredients());
+  }, [recipes]);
 
   const handleBackButtonClick = () => {
     window.location.href = "/result";
   };
+
+  console.log(recipes, ingredients);
+
+  if (!recipes.length) return null;
 
   return (
     <div className={styles.container}>
@@ -64,6 +64,9 @@ const Grocery = () => {
 
       <label className={styles.date}>March 7 to March 13</label>
       <div className={styles.groceries}>
+        {ingredients.map((ingredient) => (
+          <GroceryItem name={ingredient.name} />
+        ))}
         {recipes[15].extendedIngredients.map((item) => (
           <GroceryItem name={item.original} />
         ))}
