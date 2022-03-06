@@ -9,11 +9,18 @@ const getTodos = async () => {
 
 
 const addMealPlan = async (text) => {  
-  const ids = await generateMealPlan()
+  const ids = await generateMealPlan();
 //  console.log(ids);
-  const recipes = await recipeInfo(ids);
-  console.log(ids);
-  return await addValueToRecipes(recipes)
+  const recipe_IDs = [];
+  for (var i = 0; i < ids.length; i ++){
+    recipe_IDs.push(ids[i].recipeID);
+  }
+  recipe_IDs = ids.join(",");
+  console.log(recipe_IDs);
+// get recipes insert id array and insert it to MealPlan
+  const recipes = await recipeInfo(recipe_IDs);
+  return await addValueToRecipes(ids, recipes)
+
 }
 
 addMealPlan();

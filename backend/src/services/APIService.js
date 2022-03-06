@@ -7,7 +7,12 @@ const generateMealPlan = async () => {
   try {
     results = await axios.get(`${url}/mealplanner/generate?timeFrame=week&apiKey=611156a4665b4fbfa6536a2cd482a5df`);
 //    console.log(results);
+    const days_array = [];
+
     const parsedData = results.data.week;
+    
+    //const days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+    const recipes_insertID = [{}];
     const recipeIDs =
       [parsedData.monday.meals[0].id,
       parsedData.monday.meals[1].id,
@@ -30,16 +35,21 @@ const generateMealPlan = async () => {
       parsedData.sunday.meals[0].id,
       parsedData.sunday.meals[1].id,
       parsedData.sunday.meals[2].id]
-    let ids = recipeIDs.join(",");
-    //  console.log(ids);
-    return ids;
+    
+    console.log (recipeIDs);
+    for (var i = 0; i < recipeIDs.length; i++) {
+      const obj = {"recipeID" : ids[i], "insertID" : null}
+      recipes_insertID.push(obj);
+    }
+    console.log (recipes_insertID);
+    return recipes_insertID; 
   } catch (err) {
     console.log(err);
     return results;
   }
 };
 
-//generateMealPlan();
+generateMealPlan();
 
 const recipeInfo = async (ids) => {
   let results = {};
