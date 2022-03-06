@@ -1,4 +1,4 @@
-const { addValueToMealPlan, addValueToRecipes} = require("../services/dbService")
+const { addValueToMealPlan, addValueToRecipes, getRecipes, getShoppingList} = require("../services/dbService")
 const { generateMealPlan, recipeInfo} = require("../services/APIService")
 const { json } = require("express")
 
@@ -30,7 +30,16 @@ const addMealPlan = async () => {
   return await addValueToMealPlan({mealplan});
 }
 
-addMealPlan();
+//addMealPlan();
+
+const generateShoppingList = async (id) => {
+  const recipe_IDs = await getRecipes(id);
+  console.log(recipe_IDs);
+  return await getShoppingList(recipe_IDs);
+  
+}
+
+generateShoppingList('62245d75f121617f1fb246f3');
 
 // const updateTodo = async (id, todoText, isCompleted) => {
 //   return await updateValueInDb(id, todoText, isCompleted)
@@ -40,4 +49,4 @@ addMealPlan();
 //   return await deleteValueFromDb(id)
 // }
 
-module.exports = {addMealPlan}
+module.exports = {generateShoppingList, addMealPlan}
