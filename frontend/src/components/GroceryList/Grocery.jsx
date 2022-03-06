@@ -9,10 +9,28 @@ import { getRecipes } from "../../services/recipeService";
 
 const Grocery = () => {
   const [recipes, setRecipes] = useState([]); //added!!
+  const [ingredients, setIngredients] = useState([]);
+
   const getData = async () => {
     //added
     const result = await getRecipes();
     setRecipes(result);
+
+    setIngredients(getIngredients());
+  };
+
+  const getIngredients = () => {
+    const arr = [];
+    for (let i = 0; i < recipes.length; i++) {
+      if (recipes[i] && recipes[i].extendedIngredients.length !== 0) {
+        for (let j = 0; j < recipes[j].extendedIngredients.length; j++) {
+          arr.push(recipes[i].extendedIngredients[j]);
+        }
+      }
+    }
+
+    console.log("arr", arr);
+    return arr;
   };
 
   //all the meals are in frontend.
@@ -24,7 +42,7 @@ const Grocery = () => {
   if (!recipes.length) {
     return null; // if its empty
   }
-  console.log(recipes);
+  console.log(recipes, ingredients);
 
   const handleBackButtonClick = () => {
     window.location.href = "/result";

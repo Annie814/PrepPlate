@@ -6,13 +6,6 @@ import Icon from "../../assets/spoon.svg";
 
 const CreateMealPlan = () => {
   const handleGenerateClick = () => {
-    fetch("http://localhost:3000/mealplan")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
     window.location.href = "/result";
   };
   return (
