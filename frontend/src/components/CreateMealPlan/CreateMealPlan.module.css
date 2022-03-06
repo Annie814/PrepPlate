@@ -1,0 +1,74 @@
+.container {
+  background-color: var(--grey01);
+  width: 100%;
+  height: 100%;
+}
+
+.topContainer {
+  width: 100%;
+  height: 230px;
+  background-color: var(--darkgreen);
+  border-radius: 0 0 40px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  position: absolute;
+  top: 50px;
+  color: white;
+  font-size: 30px;
+  padding: 10px 40px 10px 30px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.subTitle {
+  position: absolute;
+  top: 160px;
+  font-weight: 700;
+  color: white;
+  font-size: 18px;
+  padding: 0px 30px;
+}
+
+.box {
+  width: 90%;
+  height: 50%;
+  background: white;
+  border-radius: var(--borderRadius);
+  margin: auto;
+  top: 250px;
+  position: relative;
+}
+
+.generateButton {
+  width: fit-content;
+  background-color: var(--orange);
+  color: white;
+  top: 260px;
+  font-weight: 900;
+  margin: auto;
+  padding: 20px 70px;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  font-size: large;
+  border-radius: var(--borderRadius);
+}
+
+.preferenceText {
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px 30px;
+  padding-top: 30px;
+}
+
+#first-preference {
+  padding-top: 40px;
+}
+
+.categoryContainer {
+  display: flex;
+}
