@@ -2,6 +2,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const express = require('express'); // import the library
 const todoRouter = require('./routes/todoRoutes'); // import the router module
+const recipeRouter = require('./routes/recipeRoutes');  //added!
 const cors = require('cors');
 
 const app = express(); // create the express object
@@ -19,5 +20,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/todos', todoRouter); // load the router module
+app.use('/recipes', recipeRouter); // added!
 
 module.exports = app

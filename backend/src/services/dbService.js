@@ -98,25 +98,25 @@ const addValueToRecipes = async (value) => {
 //   return result;
 // }
 
-// const getAllValuesFromDb = async () => {
-//   const getAll = async () => {
-//     try {
-//       await client.connect()
-//       const database = client.db('mydb');
-//       const todos = database.collection('todos');
+const getAllRecipesFromDb = async () => {      ///need that!!!
+  const getAll = async () => {
+    try {
+      await client.connect()
+      const database = client.db('prepplate');
+      const mealplan = database.collection('recipes');
 
-//       const query = {}
-//       const options = { projection: { _id: 1, text: 1, isCompleted: 1 } }
-//       const cursor = todos.find(query, options);
-//       const result = []
-//       await cursor.forEach((entry) => { console.log(entry); result.push(entry) })
-//       return result
-//     } finally {
-//       await client.close()
-//     }
-//   }
-//   const result = await getAll()
-//   return result;
-// }
+      const query = {}
+      // const options = { projection: { _id: 1, text: 1, isCompleted: 1 } }
+      const cursor = mealplan.find(query).limit(21); //limit add!
+      const result = []
+      await cursor.forEach((entry) => { console.log(entry); result.push(entry) })
+      return result
+    } finally {
+      await client.close()
+    }
+  }
+  const result = await getAll()
+  return result;
+}
 
-module.exports = { addValueToMealPlan, addValueToRecipes}
+module.exports = { addValueToMealPlan, addValueToRecipes, getAllRecipesFromDb}
