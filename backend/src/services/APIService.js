@@ -22,7 +22,7 @@ const generateMealPlan = async () => {
     return res; 
   } catch (err) {
     console.log(err);
-    return results;
+    return res;
   }
 };
 
