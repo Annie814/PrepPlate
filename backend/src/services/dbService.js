@@ -28,13 +28,16 @@ const addValueToRecipes = async (value) => {
       await client.connect()
       const database = client.db('prepplate');
       const mealplan = database.collection('recipes');
+      const IDS = [];
 
       //     const doc = { text: value, isCompleted: false }
       for (var i = 0; i < value.length; i++) {
         var obj = value[i];
         const result = await mealplan.insertOne(obj);
+        IDS.push(`${result.insertedId}`);
         console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
       }
+//      console.log(IDS);
     } finally {
       await client.close()
     }
