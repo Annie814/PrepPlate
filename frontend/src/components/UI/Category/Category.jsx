@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Category.module.css";
 
-const Category = ({ text, index, onCategoryClick }) => {
+const Category = ({ text, index, onCategoryClick, style }) => {
   const [active, setActive] = useState(false);
 
   const handleClick = () => {

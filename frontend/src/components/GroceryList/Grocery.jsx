@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "./Grocery.module.css";
 import BackIcon from "../../assets/back.svg";

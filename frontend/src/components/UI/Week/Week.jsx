@@ -12,7 +12,7 @@ const Week = ({ isStatic }) => {
     { key: 6, dayOfWeek: "Sun", date: 13, selected: false },
   ];
   const [weekState, setWeekState] = useState(initialWeekState);
-  console.log(weekState);
+
   return (
     <div className={styles.container}>
       {weekState.map((day) => (

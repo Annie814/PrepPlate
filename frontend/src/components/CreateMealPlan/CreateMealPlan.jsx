@@ -6,6 +6,13 @@ import Icon from "../../assets/spoon.svg";
 
 const CreateMealPlan = () => {
   const handleGenerateClick = () => {
+    fetch("http://localhost:3000/mealplan")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
     window.location.href = "/result";
   };
   return (
@@ -17,8 +24,14 @@ const CreateMealPlan = () => {
       <div className={styles.subTitle}>Select your preferences</div>
       <div className={styles.box}>
         <div className={styles.preferenceText} id={styles["first-preference"]}>
-          Choose Cooking Difficulty
+          Calorie intake
         </div>
+        <div className={styles.categoryContainer}>
+          <Category text="Low" index={0} />
+          <Category text="Medium" />
+          <Category text="High" />
+        </div>
+        <div className={styles.preferenceText}>Choose Cooking Difficulty</div>
         <div className={styles.categoryContainer}>
           <Category text="Easy" index={0} />
           <Category text="Medium" />
@@ -30,11 +43,11 @@ const CreateMealPlan = () => {
           <Category text="Vegetarian" />
           <Category text="Gluten Free" />
         </div>
-        <div className={styles.preferenceText}>Budget</div>
+        <div className={styles.preferenceText}>Exclude</div>
         <div className={styles.categoryContainer}>
-          <Category text="Low" index={0} />
-          <Category text="Medium" />
-          <Category text="High" />
+          <Category text="Peanuts" index={0} />
+          <Category text="Shellfish" />
+          <Category text="Eggs" />
         </div>
       </div>
       <div className={styles.generateButton} onClick={handleGenerateClick}>
