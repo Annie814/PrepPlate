@@ -1,0 +1,67 @@
+.container {
+  background-color: var(--grey01);
+  width: 100vw;
+  height: 100%;
+}
+.topContainer {
+  width: 100%;
+  height: 230px;
+  background-color: var(--darkgreen);
+  border-radius: 0 0 40px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.back {
+  color: white;
+  top: 30px;
+  position: absolute;
+  left: 60px;
+  font-size: 18px;
+}
+#back {
+  filter: invert(99%) sepia(59%) saturate(1070%) hue-rotate(212deg)
+    brightness(119%) contrast(100%);
+  width: 30px;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+}
+#cart {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: 0;
+  top: 30px;
+}
+
+.title {
+  position: absolute;
+  top: 60px;
+  color: white;
+  font-size: 30px;
+  padding: 10px 30px;
+  margin: 10px 90px auto auto;
+  line-height: 40px;
+  font-weight: 600;
+}
+.weekContainer {
+  width: 100%;
+  margin: auto;
+  top: 200px;
+  position: absolute;
+}
+.groceries {
+  margin: auto 30px;
+  position: absolute;
+  top: 350px;
+}
+.date {
+  position: absolute;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 900;
+
+  margin: auto 30px;
+  top: 300px;
+}
