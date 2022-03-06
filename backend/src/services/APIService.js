@@ -1,11 +1,12 @@
-import axios from 'axios';
+const axios = require('axios');
 
-const url = 'https://api.spoonacular.com/mealplanner'
+const url = 'https://api.spoonacular.com'
 
 const generateMealPlan = async () => {
   let results = {};
   try {
-    results = await axios.get(`${url}/generate?timeFrame=week`);
+    results = await axios.get(`${url}/mealplanner/generate?timeFrame=week`);
+    console.log(results);
     return results.data;
   } catch (err) {
     console.log(err);
@@ -13,11 +14,11 @@ const generateMealPlan = async () => {
   }
 };
 
-const deleteTodo = async (id) => {
-  console.log(id)
+
+const recipeInfo = async (ids) => {
   let results = {};
   try {
-    results = await axios.delete(`${backendUrl}/todos/${id}`);
+    results = await axios.get(`${url}/recipes/informationBulk?ids=${ids}`);
     return results.data;
   } catch (err) {
     console.log(err);
@@ -25,26 +26,4 @@ const deleteTodo = async (id) => {
   }
 };
 
-const updateTodo = async (id, text, isCompleted) => {
-  let results = {};
-  try {
-    results = await axios.put(`${backendUrl}/todos/${id}`, { text: text, isCompleted: isCompleted });
-    return results.data;
-  } catch (err) {
-    console.log(err);
-    return results;
-  }
-};
-
-const createTodo = async (text) => {
-  let results = {};
-  try {
-    results = await axios.post(`${backendUrl}/todos`, { text: text })
-    return results.data;
-  } catch (err) {
-    console.log(err);
-    return results;
-  }
-};
-
-export { getTodos, deleteTodo, updateTodo, createTodo };
+module.export = { generateMealPlan, recipeInfo};

@@ -133,4 +133,4 @@ const getAllValuesFromDb = async () => {
   return result;
 }
 
-module.exports = { addValueToDb, getAllValuesFromDb, updateValueInDb, deleteValueFromDb }
+module.exports = {addValueToMealPlan, addValueToRecipes,  getAllValuesFromDb, updateValueInDb, deleteValueFromDb }
