@@ -19,6 +19,15 @@
   right: 0;
   top: 0px;
 }
+#back {
+  filter: invert(99%) sepia(59%) saturate(1070%) hue-rotate(212deg)
+    brightness(119%) contrast(100%);
+  width: 30px;
+  position: absolute;
+  top: 25px;
+  left: 20px;
+}
+
 .title {
   position: absolute;
   top: 50px;
@@ -56,7 +65,7 @@
   color: white;
   top: 30px;
   position: absolute;
-  left: 50px;
+  left: 60px;
   font-size: 18px;
 }
 

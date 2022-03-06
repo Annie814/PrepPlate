@@ -1,14 +1,24 @@
 import React from "react";
 import styles from "./MealPlanResult.module.css";
 import PlateIcon from "../../assets/plate.svg";
+import BackIcon from "../../assets/back.svg";
 import Week from "../UI/Week/Week";
 import Meal from "../UI/Meal/Meal";
 
 const MealPlanResult = ({ mealPlan }) => {
+  const handleBackButtonClick = () => {
+    window.location.href = "/create";
+  };
+  const handleViewGroceryClick = () => {
+    window.location.href = "/grocery";
+  };
   return (
     <div className={styles.container}>
       <div className={styles.topContainer}>
-        <div className={styles.back}>Back</div>
+        <div onClick={handleBackButtonClick}>
+          <img src={BackIcon} alt="back" id={styles["back"]}></img>
+          <div className={styles.back}>Back</div>
+        </div>
         <img src={PlateIcon} alt="plate" id={styles["plate"]} />
 
         <div className={styles.title}>Your meal plan for this week</div>
@@ -37,7 +47,9 @@ const MealPlanResult = ({ mealPlan }) => {
           <Meal />
         </div>
       </div>
-      <div className={styles.viewButton}>View Grocery List</div>
+      <div className={styles.viewButton} onClick={handleViewGroceryClick}>
+        View Grocery List
+      </div>
     </div>
   );
 };

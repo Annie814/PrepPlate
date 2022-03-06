@@ -5,6 +5,9 @@ import styles from "./CreateMealPlan.module.css";
 import Icon from "../../assets/spoon.svg";
 
 const CreateMealPlan = () => {
+  const handleGenerateClick = () => {
+    window.location.href = "/result";
+  };
   return (
     <div className={styles.container}>
       <div className={styles.topContainer}>
@@ -34,7 +37,9 @@ const CreateMealPlan = () => {
           <Category text="High" />
         </div>
       </div>
-      <div className={styles.generateButton}>Generate Meal Plan</div>
+      <div className={styles.generateButton} onClick={handleGenerateClick}>
+        Generate Meal Plan
+      </div>
     </div>
   );
 };
