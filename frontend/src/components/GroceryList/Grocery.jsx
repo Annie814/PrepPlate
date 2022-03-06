@@ -1,14 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react"; //added!!
 
 import styles from "./Grocery.module.css";
 import BackIcon from "../../assets/back.svg";
 import CartIcon from "../../assets/cart.svg";
 import Week from "../UI/Week/Week";
 import GroceryItem from "../UI/GroceryItem/GroceryItem";
+import { getRecipes } from "../../services/recipeService";
+
 const Grocery = () => {
+  const [recipes, setRecipes] = useState([]); //added!!
+  const getData = async () => {
+    //added
+    const result = await getRecipes();
+    setRecipes(result);
+  };
+
+  //all the meals are in frontend.
+  //usestate to controll the meals to show.
+
+  useEffect(() => {
+    getData();
+  }, []);
+  if (!recipes.length) {
+    return null; // if its empty
+  }
+  console.log(recipes);
+
   const handleBackButtonClick = () => {
     window.location.href = "/result";
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.topContainer}>
@@ -25,12 +46,15 @@ const Grocery = () => {
 
       <label className={styles.date}>March 7 to March 13</label>
       <div className={styles.groceries}>
-        <GroceryItem />
-        <GroceryItem />
-        <GroceryItem />
-        <GroceryItem />
-        <GroceryItem />
-        <GroceryItem />
+        {recipes[15].extendedIngredients.map((item) => (
+          <GroceryItem name={item.original} />
+        ))}
+        {recipes[16].extendedIngredients.map((item) => (
+          <GroceryItem name={item.original} />
+        ))}
+        {recipes[17].extendedIngredients.map((item) => (
+          <GroceryItem name={item.original} />
+        ))}
       </div>
     </div>
   );
