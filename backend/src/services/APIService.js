@@ -13,11 +13,11 @@ const generateMealPlan = async () => {
   }
 };
 
-const deleteTodo = async (id) => {
-  console.log(id)
+const GetRecipeInfo = async (ids) => {
+  console.log(ids)
   let results = {};
   try {
-    results = await axios.delete(`${backendUrl}/todos/${id}`);
+    results = await axios.get(`${url}/recipes/informationBulk?ids=${url}&includeNutrition=false`);
     return results.data;
   } catch (err) {
     console.log(err);
