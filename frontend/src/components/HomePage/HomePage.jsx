@@ -1,7 +1,22 @@
 import React from "react";
+import styles from "./HomePage.module.css";
 
+import PreplateIcon from "../../assets/prepplate.svg";
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <img src={PreplateIcon} alt="mainLogo" id={styles["preplate"]} />
+      </div>
+      <div className={styles.title}>PrepPlate</div>
+      <div className={styles.paragraph}>
+        Select your preferences and get automatically personalized meal plans
+        and grocery lists every week!
+      </div>
+
+      <div className={styles.startButton}>Get Started</div>
+    </div>
+  );
 };
 
 export default HomePage;
