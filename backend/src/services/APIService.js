@@ -7,32 +7,31 @@ const generateMealPlan = async () => {
   try {
     results = await axios.get(`${url}/mealplanner/generate?timeFrame=week&apiKey=df07beb94fea48aeb10af590422d0fe7`);
     console.log(results);
-    JSON.stringify(results);
-    var parsedData = JSON.parse(results);
-    console.log(parsedData[week]);
-  const recipeIDs = 
-  [parsedData.week.monday.meals[0].id,
-  parsedData.week.monday.meals[1].id,
-  parsedData.week.monday.meals[2].id,
-  parsedData.week.tuesday.meals[0].id,
-  parsedData.week.tuesday.meals[1].id,
-  parsedData.week.tuesday.meals[2].id,
-  parsedData.week.wednesday.meals[0].id,
-  parsedData.week.wednesday.meals[1].id,
-  parsedData.week.wednesday.meals[2].id,
-  parsedData.week.thursday.meals[0].id,
-  parsedData.week.thursday.meals[1].id,
-  parsedData.week.thursday.meals[2].id,
-  parsedData.week.friday.meals[0].id,
-  parsedData.week.friday.meals[1].id,
-  parsedData.week.friday.meals[2].id,
-  parsedData.week.saturday.meals[0].id,
-  parsedData.week.saturday.meals[1].id,
-  parsedData.week.saturday.meals[2].id,
-  parsedData.week.sunday.meals[0].id,
-  parsedData.week.sunday.meals[1].id,
-  parsedData.week.sunday.meals[2].id]
-  let ids= recipeIDs.join(",");
+    const parsedData = results.data.week;
+    const recipeIDs =
+      [parsedData.monday.meals[0].id,
+      parsedData.monday.meals[1].id,
+      parsedData.monday.meals[2].id,
+      parsedData.tuesday.meals[0].id,
+      parsedData.tuesday.meals[1].id,
+      parsedData.tuesday.meals[2].id,
+      parsedData.wednesday.meals[0].id,
+      parsedData.wednesday.meals[1].id,
+      parsedData.wednesday.meals[2].id,
+      parsedData.thursday.meals[0].id,
+      parsedData.thursday.meals[1].id,
+      parsedData.thursday.meals[2].id,
+      parsedData.friday.meals[0].id,
+      parsedData.friday.meals[1].id,
+      parsedData.friday.meals[2].id,
+      parsedData.saturday.meals[0].id,
+      parsedData.saturday.meals[1].id,
+      parsedData.saturday.meals[2].id,
+      parsedData.sunday.meals[0].id,
+      parsedData.sunday.meals[1].id,
+      parsedData.sunday.meals[2].id]
+    let ids = recipeIDs.join(",");
+    //  console.log(ids);
     return ids;
   } catch (err) {
     console.log(err);
@@ -40,7 +39,7 @@ const generateMealPlan = async () => {
   }
 };
 
-generateMealPlan();
+//generateMealPlan();
 
 const recipeInfo = async (ids) => {
   let results = {};
@@ -53,4 +52,4 @@ const recipeInfo = async (ids) => {
   }
 };
 
-module.export = { generateMealPlan, recipeInfo};
+module.export = { generateMealPlan, recipeInfo };
