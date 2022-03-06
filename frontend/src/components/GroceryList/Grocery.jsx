@@ -65,16 +65,7 @@ const Grocery = () => {
       <label className={styles.date}>March 7 to March 13</label>
       <div className={styles.groceries}>
         {ingredients.map((ingredient) => (
-          <GroceryItem name={ingredient.name} />
-        ))}
-        {recipes[15].extendedIngredients.map((item) => (
-          <GroceryItem name={item.original} />
-        ))}
-        {recipes[16].extendedIngredients.map((item) => (
-          <GroceryItem name={item.original} />
-        ))}
-        {recipes[17].extendedIngredients.map((item) => (
-          <GroceryItem name={item.original} />
+          <GroceryItem name={ingredient.original} />
         ))}
       </div>
     </div>
