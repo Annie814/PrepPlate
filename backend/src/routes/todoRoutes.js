@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const {addMealPlan} = require('../controllers/mainController')
+const {addMealPlan, generateShoppingList} = require('../controllers/mainController')
 
-
-// router.get('/', async (req, res) => {
-//   const todos = await getTodos()
-//   res.send(todos);
-// });
-
-router.post('/', async (req, res) => {
+router.post('/mealplan', async (req, res) => {
   const result = await addMealPlan()
   res.send(result);
 });
+
+router.get('/shoppinglist', async(req,res) => {
+  const result = await generateShoppingList()
+  res.send(result);
+})
 
 // router.put('/:id', async (req, res) => {
 //   const id = req.params.id;
