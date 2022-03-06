@@ -10,6 +10,44 @@ const addValueToMealPlan = async (value) => {
       const database = client.db('prepplate');
       const mealplan = database.collection('mealplan');
 
+//      const doc = { text: value, isCompleted: false }
+      const result = await mealplan.insertOne(value)
+      console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
+      return result
+    } finally {
+      await client.close()
+    }
+  };
+  const result = await insert(value)
+  return result;
+}
+
+const addValueToRecipes = async (value) => {
+  const insert = async (value) => {
+    try {
+      await client.connect()
+      const database = client.db('prepplate');
+      const mealplan = database.collection('recipes');
+
+      const doc = { text: value, isCompleted: false }
+      const result = await mealplan.insertOne(doc)
+      console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
+      return result
+    } finally {
+      await client.close()
+    }
+  };
+  const result = await insert(value)
+  return result;
+}
+
+const addValueToIngredients = async (value) => {
+  const insert = async (value) => {
+    try {
+      await client.connect()
+      const database = client.db('prepplate');
+      const mealplan = database.collection('ingredients');
+
       const doc = { text: value, isCompleted: false }
       const result = await mealplan.insertOne(doc)
       console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
