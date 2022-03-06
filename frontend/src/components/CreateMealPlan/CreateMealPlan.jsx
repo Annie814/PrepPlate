@@ -2,11 +2,14 @@ import React from "react";
 import Category from "../UI/Category/Category";
 
 import styles from "./CreateMealPlan.module.css";
+import Icon from "../../assets/spoon.svg";
 
 const CreateMealPlan = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.topContainer} />
+      <div className={styles.topContainer}>
+        <img src={Icon} alt="spoon" id={styles["spoon"]} />
+      </div>
       <div className={styles.title}>Create your weekly meal plan</div>
       <div className={styles.subTitle}>Select your preferences</div>
       <div className={styles.box}>
