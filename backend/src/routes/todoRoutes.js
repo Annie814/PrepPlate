@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getTodos, addTodo, updateTodo, deleteTodo } = require('../controllers/mainController')
+const { getTodos, addMealPlan, updateTodo, deleteTodo, addMealPlan } = require('../controllers/mainController')
 
 router.get('/', async (req, res) => {
   const todos = await getTodos()
@@ -8,8 +8,8 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const text = req.body.text;
-  const result = await addTodo(text)
+//  const text = req.body.text;
+  const result = await addMealPlan()
   res.send(result);
 });
 
