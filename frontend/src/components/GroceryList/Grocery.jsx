@@ -19,7 +19,7 @@ const Grocery = () => {
 
   const getIngredients = () => {
     const arr = [];
-    for (let i = 3; i < recipes.length; i++) {
+    for (let i = 6; i < recipes.length; i++) {
       if (
         recipes[i].extendedIngredients &&
         recipes[i].extendedIngredients.length !== 0
