@@ -1,0 +1,46 @@
+.container {
+  background-color: var(--grey01);
+  width: 100vw;
+  height: 100%;
+}
+.topContainer {
+  width: 100%;
+  height: 230px;
+  background-color: var(--darkgreen);
+  border-radius: 0 0 40px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#plate {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  right: 0;
+  top: 0px;
+}
+.title {
+  position: absolute;
+  top: 50px;
+  color: white;
+  font-size: 30px;
+  padding: 10px 30px;
+  margin: 10px 90px auto auto;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.viewButton {
+  background-color: var(--orange);
+  color: white;
+  margin: auto;
+  top: 85%;
+  font-weight: 900;
+  width: 90%;
+  padding: 20px 0;
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  font-size: large;
+  border-radius: var(--borderRadius);
+}
