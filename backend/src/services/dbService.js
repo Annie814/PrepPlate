@@ -22,8 +22,8 @@ const addValueToMealPlan = async (value) => {
   return result;
 }
 
-const addValueToRecipes = async (value1,value2) => {
-  const insert = async (value1,value2) => {
+const addValueToRecipes = async (value) => {
+  const insert = async (value) => {
     try {
       await client.connect()
       const database = client.db('prepplate');
@@ -31,21 +31,20 @@ const addValueToRecipes = async (value1,value2) => {
       const IDS = [];
 
       //     const doc = { text: value, isCompleted: false }
-      for (var i = 0; i < value2.length; i++) {
-        var obj = value2[i];
+      for (var i = 0; i < value.length; i++) {
+        var obj = value[i];
         const result = await mealplan.insertOne(obj);
         IDS.push(`${result.insertedId}`);
         console.log(`A mealplan was inserted with the _id: ${result.insertedId}`);
-        value1[i].insertID = result.insertedId;
-        console.log(value1[i].insertID)
       }
-//      console.log(IDS);
+      console.log(IDS);
+      return IDS;
     } finally {
       await client.close()
     }
   };
-  const result = await insert(value1,value2)
-  return [result,value1];
+  const result = await insert(value)
+  return result;
 }
 
 const addValueToIngredients = async (value) => {
