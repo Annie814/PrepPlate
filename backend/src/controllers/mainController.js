@@ -12,6 +12,7 @@ const addMealPlan = async (text) => {
   const ids = await generateMealPlan()
 //  console.log(ids);
   const recipes = await recipeInfo(ids);
+  console.log(ids);
   return await addValueToRecipes(recipes)
 }
 
