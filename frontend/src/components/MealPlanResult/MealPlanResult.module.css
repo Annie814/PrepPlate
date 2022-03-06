@@ -34,7 +34,7 @@
   background-color: var(--orange);
   color: white;
   margin: auto;
-  top: 85%;
+  top: 780px;
   font-weight: 900;
   width: 90%;
   padding: 20px 0;
@@ -43,4 +43,64 @@
   position: relative;
   font-size: large;
   border-radius: var(--borderRadius);
+}
+
+.weekContainer {
+  width: 100%;
+  margin: auto;
+  top: 200px;
+  position: absolute;
+}
+
+.back {
+  color: white;
+  top: 30px;
+  position: absolute;
+  left: 50px;
+  font-size: 18px;
+}
+
+.date {
+  position: absolute;
+  left: 30px;
+  top: 34%;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.mealContainer {
+  margin: auto 30px;
+}
+
+.mealText {
+  color: var(--grey04);
+  font-size: 14px;
+}
+
+#breakfastText {
+  top: 350px;
+  position: absolute;
+}
+#lunchText {
+  top: 500px;
+  position: absolute;
+}
+#dinnerText {
+  top: 620px;
+  position: absolute;
+}
+
+.breakfast {
+  position: absolute;
+  top: 380px;
+}
+
+.lunch {
+  position: absolute;
+  top: 520px;
+}
+
+.dinner {
+  position: absolute;
+  top: 660px;
 }

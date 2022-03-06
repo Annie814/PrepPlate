@@ -1,0 +1,18 @@
+.container {
+  width: 80vw;
+  background: white;
+  border-radius: 20px;
+  padding: 40px 10px;
+  margin: auto;
+}
+
+.imageContainer {
+  width: 80px;
+  height: 100%;
+  background-color: var(--grey02);
+  left: 0;
+  top: 0;
+  position: absolute;
+
+  border-radius: 20px 0 0 20px;
+}
