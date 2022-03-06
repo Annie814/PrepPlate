@@ -6,7 +6,7 @@ const generateMealPlan = async () => {
   let results = {};
   try {
     results = await axios.get(`${url}/mealplanner/generate?timeFrame=week&apiKey=df07beb94fea48aeb10af590422d0fe7`);
-    console.log(results);
+//    console.log(results);
     const parsedData = results.data.week;
     const recipeIDs =
       [parsedData.monday.meals[0].id,
@@ -52,4 +52,4 @@ const recipeInfo = async (ids) => {
   }
 };
 
-module.export = { generateMealPlan, recipeInfo };
+module.exports = { generateMealPlan, recipeInfo }
