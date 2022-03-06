@@ -3,6 +3,9 @@ import styles from "./HomePage.module.css";
 
 import PreplateIcon from "../../assets/prepplate.svg";
 const HomePage = () => {
+  const moveToMealCreatePage = () => {
+    window.location.href = "/create";
+  };
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
@@ -14,7 +17,9 @@ const HomePage = () => {
         and grocery lists every week!
       </div>
 
-      <div className={styles.startButton}>Get Started</div>
+      <div className={styles.startButton} onClick={moveToMealCreatePage}>
+        Get Started
+      </div>
     </div>
   );
 };
